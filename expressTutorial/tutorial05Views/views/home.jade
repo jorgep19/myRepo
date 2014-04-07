@@ -1,0 +1,14 @@
+// this extends is what allows to use layout.jade
+// and just insert what is proper where we want it.
+extends layout
+
+// straight HTML element
+// h1 Hello, Jade
+
+// When using a block it is important to remember that
+// indentation matters a lot because it what define wrapping
+// of elements
+block content
+    // no spaces does matter!!!
+    h2=title
+    p some stuff

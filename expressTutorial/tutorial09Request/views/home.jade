@@ -1,0 +1,46 @@
+doctype
+html
+    head
+        // now for and script tags any text indented is considered CSS or JS respectively
+            style// TODO check why this is not working
+                .someClass{background-color: blue;}
+    // something that is to be executed on the server just has to be prefixed with -
+    -var name = "Jorge";
+    -var fn = function() { return 'javaScriptValue'; };
+    -var fn2 = function() { return '<i>fancy JS</i>'; };
+    body
+        // formate is element name and then the content
+        h1 Hello Express
+        h2=title
+        // tabbing defines elements hierarchy
+        // to set an id just do #someId after the element (no spaces)
+        ul#someId
+            // to set a class just do .class after the element name (no spaces)
+            li.someClass#activeOne One
+            li.someClass=name
+            // code between #{ is treated as javaScript}
+            li.someClass #{name}
+            li.someclass #{ 1+3 }
+            li.someclass #{ fn() }
+            // now with #{} text gets scaped to avoid that use !{}
+            li.someclass !{ fn2() }
+                // notice that this is inside the li and that the
+                a(href="http://www.google.com",data-bind="fancy") Go to google
+            li.someClass Three
+
+        // when content take more that one line just start each line with a |
+        // and don't forget the tabbing
+        p
+            | stuff
+            | more stuff
+            | even more stuff
+
+        // Also you can put a . (dot) after the element name and type freely
+        p.
+            stuff
+            more stuff
+            even more stuff
+
+        // One catch of both of this method is that the text in the html render
+            actually has the line breaks SO watch out for <pre> elements
+

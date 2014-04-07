@@ -1,0 +1,40 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  // This prevent npm from publishing this around
+  // you want this to be TRUE unless you are
+  // developing a module you want to share
+  "private": true,
+  "scripts": {
+    // this defines what gets run when you type
+    // npm start in the console
+    "start": "node ./app",
+    // this could be changed to
+    "start": "nodemon app.js"
+    // you could also have a build defined in a file
+    // which could be run by doing npm build
+    // iff the build attribute is defined here
+    "build": "./bin/build.js"
+  },
+  "dependencies": {
+    // all dependencies are defined as
+    // "name": "version number"
+    // version can be defined as
+    // "*" any version
+    // "<=versionNumber"
+    "express": "~3.4.8",
+    "static-favicon": "~1.0.0",
+    "morgan": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "body-parser": "~1.0.0",
+    "debug": "~0.7.4",
+    "jade": "~1.3.0"
+  },
+  // this defines dependencies that only used during
+  // development like nodemon or a testing suite etc
+  "devDependencies": {
+    "nodemon": "*"
+    // remember npm install -g name installs the package globally
+    // so this is not needed in every project
+  }
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="store">
+	<head>
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
+	</head>
+	<body>
+		<script type="text/javascript" src="lib/angular.min.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+	
+		<!-- only the this div has access to the controller
+			it was declared using the directive y giving the name 
+			of te controller and an alias (var name)
+		-->
+		<div ng-controller="StoreController as store">
+			<!-- the loop variable can be use at the same variable! -->
+			<div ng-repeat="product in store.products" ng-hide="product.soldOut">
+				<h1> {{product.name}} </h1>
+				<em class="pull-right"> {{product.price | currency}} </em>
+				<p> {{product.description}} </p>
+				<button ng-show="product.canPurchase"> Add to cart</button>
+			</div>
+		</div>
+	</body>
+</html>

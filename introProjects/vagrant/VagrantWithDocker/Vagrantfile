@@ -1,0 +1,21 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+SERVICES_IP_ADDRESS = "10.38.38.38"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+	config.vm.box = "ubuntu/trusty64"
+	config.vm.network "private_network", ip: SERVICES_IP_ADDRESS
+
+	config.vm.provision "docker" do |d|
+		d.build_image "/vagrant/rabbitmq", args: "-t rabbitmq"
+		d.run "rabbitmq", args: "-p #{SERVICES_IP_ADDRESS}:5672:5672 -p {SERVICES_IP_ADDRESS}:15672:15672"
+		d.pull_images 'dockerfile/mongodb'
+		d.run 'dockerfile/mongodb', args: "-p 27017:27017 -h 10.38.38.38", name: 'mongodb'
+	end
+
+	config.vm.provision "shell", path: "install-rabbitmq-admin.sh"
+
+end

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="starApp">
+<head>
+  <title>Rating Directive Demo</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body ng-init="rating = 5">
+    <div ng-controller="StarCtrl"> <span ng-repeat="rating in ratings">
+    {{rating.current}} out of
+            {{rating.max}}
+        <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+        </span>
+    </div>
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+</body>
+</html>

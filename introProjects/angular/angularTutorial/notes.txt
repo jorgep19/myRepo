@@ -1,0 +1,365 @@
+http://www.airpair.com/angularjs
+
+Angular Concepts:
+- Model: pure data models (might have behavior that hold business logic) also
+	with ng-model could be data models created on the markup.
+- Controller: what connects the model and the services. It should only talk
+	to the services 
+- Services: what talks to the back-end by performing model data and performing
+	business logic. All services are sigletons. 
+- View: the markup
+
+-------------------------------------------------------------------------------
+
+General:
+-------
+
+- Controllers and services names should be in Pascal case (Cammel starting with 
+	upper case)
+
+- If we're loading our JavaScript files asynchronously then we need to manually 
+bootstrap the application using:
+angular.bootstrap(document.documentElement, ['app']);.
+
+- This creates a binding between JavaScript and the DOM, the $scope Object is
+ really a glorified ViewModel.
+
+Controllers:
+-----------
+
+- remember you are just passing a function to the cntrollers so this is probably 
+a cleaner way of way of writing controllers. NOTE: named function helps 
+on debugging
+
+function MainCtrl () { 
+};
+
+angular
+	.module('app', []) 
+	.controller('MainCtrl', MainCtrl);
+
+- All the Controller does is talk to a Service, and pass the data in either 
+the same or a different format across to our View, using the $scope Object.
+- Is cleaner to instead of $scope use this in the controllers and then
+in the markup use the "As syntax" <div ng-controller="MainCtrl as main">
+
+- scope this by using variables in the function scopes of you controller
+function MainCtrl () { 
+	var vm = this; 
+	vm.removeFromStock = function (item, index) { 
+		vm.items.splice(index, 1); 
+	}; 
+	vm.items = [...]; 
+}
+
+
+Services:
+--------
+
+- Use this in its declaration. Because the constructor function that 
+gets called with new to gneerate a singleton.
+
+- The thing with services is that since it is a singleton o other code can use
+it before the object gets fully instaniated. 
+
+Factories:
+---------
+
+- allows for private and public interfaces
+- return an object
+
+Angular templates:
+-----------------
+- Handlebar expressions ( {{ }} ) are used in the markup for dynamic evaluation
+	using the $scope object.
+- {{}} expressions are evaluated each $digest cycle
+
+Angular Directives:
+------------------
+- ng-click
+- ng-repeat: NOTE: get item index using $index
+- ng-model: binds to an object in the $scope or appends an object to the $scope
+	depending if the name exist or not
+- ng-href/ng-src: takes care of dynamic changes for borwaser compatibility
+- ng-class: Evaluating expression add or removes css classes to an element
+
+	<div class="notification" ng-class="{ 
+		warning: main.response == 'error', 
+		ok: main.response == 'success' }"> 
+		{{ main.responseMsg }} 
+	</div>
+- ng-show/ng-hide
+- ng-if: Different from show and hide because it acuatually removes the 	
+	DOM elemnt
+- ng-switch. work like ng-if because it removes the unused DOM elements
+<div ng-switch on="main.user.access">
+  <div ng-switch-when="admin">
+    <!-- code for admins -->
+  </div>
+  <div ng-switch-when="user">
+    <!-- code for users -->
+  </div>
+  <div ng-switch-when="author">
+    <!-- code for authors -->
+  </div>
+</div>
+- ng-bind: alternamtive for {{ expression }} (just showing data) for case 
+	when angular is having trouble parsing fast enough
+- ng-view: what defines the container tha gets updated. 
+
+Custom Directives:
+------------------
+
+- Resctric property can be 'E' for element, 'A' for attribute, 'C' for class
+	or 'M' for comment. Best practice for compatibility is attribute.
+- template attribute define as a string the html for the directive.
+- cleanest/effective way to write the attribute is taking a [].join
+{ template: [ 
+	'<div>', 
+		'<ul>', 
+			'<li ng-repeat="item in vm.items">', 
+				'{{ item }}', 
+			'</li>',
+		'</ul>', 
+	'</div>' 
+].join('') }
+
+- ALSO we can just use { templateUrl: 'items.html' } to "import" the template.
+	However, it first look for a script tag with an id that matches the name.
+	Notice: ng-template and id on the attributes of the script tag.
+<script type="text/ng-template" id="/hello.html"> 
+	<div> 
+		<ul> 
+			<li ng-repeat="item in vm.items"> {{ item }} </li> 
+		</ul> 
+	</div>
+</script>
+- If you don't put it in a script tag it will make a get request. 
+- however, keep in mind that all templates loaded by angular will stay in the 
+	$templateCache for the lifetime of the application.
+
+Directive API:
+-------------
+function someDirective () {
+	return {
+		// can be 'E', 'A', 'C','M' or combinations to define how the directive 
+		// can be use
+		restrict: 'EA', 	// 
+		//  so that he element for the directive gets replaced by the template
+		replace: true, 
+		// to inherith the $scope of the parent element
+		scope: true, 
+		// define the controller alias
+		controllerAs: 'something', 
+		// define the controller or give the name of the controller.
+		controller: function () { },  // or 'MainCtrl'
+		// called when the directive element is injected to the DOM
+		// 
+		link: function ($scope, $element, $attrs) { }, 
+		template: [ 
+			'<div class="some-directive">', 
+				'My directive!', 
+			'</div>' 
+		].join('') 
+	}; 
+} 
+angular 
+	.module('app')
+	.controller('someDirective', someDirective);
+
+- in the markup someDirective will be mapped to some-directive
+
+Filters: 
+-------
+- Cane be used in two ways, in the markup or in using the $filter service
+{{ filter_expression | filter : expression : comparator }}
+$filter('filter')(array, expression, comparator);
+
+- date filter: {{ timeNow | date:'dd-MM-yyyy' }}
+- json filter: object to json string {{ myObject | json }}
+- limit the number of elements shown:  <li ng-repeat="user in users | limitTo:10">
+- order by filter: <li ng-repeat=" user in users | orderBy:'name' ">
+
+Custom filters:
+--------------
+- For single value:
+
+function toLowercase () { 
+	return function (item) { return item.toLowerCase(); }; 
+};
+
+angularj
+	.module('app')
+	.filter('toLowercase', toLowercase);
+
+- For data set with parameters: 
+<ul> 
+	<li ng-repeat="item in items | namesStartingWithA:something"> 
+		{{ item }} 
+	</li> 
+</ul>
+filter.js
+function namesStartingWithA () { 
+	return function (items, something) { // access to "items" and "something" }; 
+} 
+
+angular
+	.module('app')
+	.filter('namesStartingWithA', namesStartingWithA);
+
+- Filter in the controller:
+<ul> 
+	<li ng-repeat="item in vm.items | filter:namesStartingWithA"> 
+		{{ item }} 
+	</li> 
+</ul>
+
+function SomeCtrl () { 
+	this.namesStartingWithA = function () { }; 
+} 
+
+angular
+	.module('app')
+	.controller('SomeCtrl', SomeCtrl);
+
+Dynamic routing with $routeProvider:
+-----------------------------------
+- Is not in core Angular you gotta require the ngRoute module in your app
+- you can put parameter in the url by 
+- the tamplates of the route will be injected in the <div ng-view> element 
+	in our app
+- Once impoted the module we must configure it in the app.config()
+
+function router ($routeProvider) // $routeProvider injected from the ngRoute { 
+	$routeProvider
+		// (urlOfTheRoute, )
+		.when('/inbox', { 
+			// html of the view
+			templateUrl: 'views/inbox.html',
+			// controller for the view 
+			controller: 'InboxCtrl', 
+			// alias of the controller
+			controllerAs: 'inbox' 
+		})
+		 // if they can't go to the url redirect to
+		.otherwise({ redirectTo: '/inbox' });
+} 
+
+angular
+	.module('app')
+	.config(router);
+
+- All view need a controller '/inbox/email/:id'
+- To retrieve the values you get $routeParams in the controller and it has 
+	a json with the params by name and value
+
+Form Validation:
+---------------
+- The form tag must have a name attribute which will be the namespace of the form
+- take advantage of the pattern attribute by defining the format of the input 
+	with a regex
+- ng-required instead of regular so that angular watches the change of the value
+- elements on the form get ng-pristine class after render and keep that 
+	until the user interacts with it. 
+- once the user interacts with the element in the form it get the class ng-dirty
+- there are also the self-descriptive classes ng-valid and ng-invalid
+- ng-disabled
+
+$http:
+-----
+- $http({...}) is available to setup the parameter of the request
+
+$http
+	.get('/url')
+	.then(
+		function (response) { 
+			// success 
+		}, 
+		function (reason) { 
+			// error 
+	});
+
+$resource:
+---------
+- is  external module called ngResource
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+insert LMOPX 205.04 -13.23 -2.97 hgh low 1
+insert FLCGX 170.90 -0.20 4.96 hgh avp 2
+insert RYMMX 185.88 -6.28 0.86 hgh avm 1
+insert KIFAX 163.73 -4.57 -0.59 low hgh 4
+insert IDPIX 160.11 -12.12 -4.44 hgh low 1
+searchtick KIFAX
+searchtick RBCGX
+insert RBCGX 49.30 15.55 10.02 low hgh 3
+searchtick RBCGX
+searchstar 1
+searchstar 5
+list
+insert LOMMX 35.26 6.28 5.09 ave hgh 5
+insert YACKX 118.26 8.43 7.65 avp hgh 5
+insert KIFAX 163.73 -4.57 -0.59 low hgh 4
+insert BURFX 89.49 7.40 9.29 avm hgh 5
+insert BIRMX 287.20 0.71 15.47 hgh avp 2
+searchtick LOMMX
+insert SSGRX 124.43 5.61 9.58 hgh ave 3
+searchtick YACKX
+count
+searchstar 5
+list

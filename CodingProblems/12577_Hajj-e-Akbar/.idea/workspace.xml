@@ -2,12 +2,22 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true">
     <generated>
-      <config projectName="11498_DivisionOfNlogonia" targetName="11498_DivisionOfNlogonia" />
+      <config projectName="12577_Hajj_e_Akbar" targetName="12577_Hajj_e_Akbar" />
     </generated>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3abdeb9f-c8d0-461f-bcaa-12c90cbaafa7" name="Default" comment="" />
-    <ignored path="11498_DivisionOfNlogonia.iws" />
+    <list default="true" id="60675e32-2220-4c2c-a0b7-f5cf7d6f5ebc" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/12577_Hajj-e-Akbar.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../libraries/AndroidSlidingUpPanel-foursquare-map-demo" afterPath="$PROJECT_DIR$/../../libraries/AndroidSlidingUpPanel-foursquare-map-demo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../introProjects/angular/codeSchool" afterPath="$PROJECT_DIR$/../../introProjects/angular/codeSchool" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Vagrant/meanBox" afterPath="$PROJECT_DIR$/../../Vagrant/meanBox" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../11498_DivisionOfNlogonia/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../11498_DivisionOfNlogonia/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../11727_CostCutting/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../11727_CostCutting/.idea/workspace.xml" />
+    </list>
+    <ignored path="12577_Hajj-e-Akbar.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,7 +32,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
-    <favorites_list name="11498_DivisionOfNlogonia" />
+    <favorites_list name="12577_Hajj-e-Akbar" />
   </component>
   <component name="FileEditorManager">
     <leaf>
@@ -39,16 +49,19 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5887372" vertical-offset="0" max-vertical-offset="765">
-              <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.46075085" vertical-offset="0" max-vertical-offset="586">
+              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
               <folding>
-                <element signature="e#0#17#0" expanded="true" />
+                <element signature="e#0#19#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -66,7 +79,7 @@
     <option name="width" value="899" />
     <option name="height" value="984" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -93,7 +106,7 @@
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="11498_DivisionOfNlogonia" />
+              <option name="myItemId" value="12577_Hajj-e-Akbar" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$1$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -104,26 +117,26 @@
   <component name="PropertiesComponent">
     <property name="recentsLimit" value="5" />
   </component>
-  <component name="RunManager" selected="Application.11498_DivisionOfNlogonia">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="11498_DivisionOfNlogonia" TARGET_NAME="11498_DivisionOfNlogonia" CONFIG_NAME="Debug">
+  <component name="RunManager" selected="Application.12577_Hajj_e_Akbar">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="12577_Hajj_e_Akbar" TARGET_NAME="12577_Hajj_e_Akbar" CONFIG_NAME="Debug">
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="11498_DivisionOfNlogonia" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="11498_DivisionOfNlogonia" TARGET_NAME="11498_DivisionOfNlogonia" CONFIG_NAME="Debug">
+    <configuration default="false" name="12577_Hajj_e_Akbar" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="12577_Hajj_e_Akbar" TARGET_NAME="12577_Hajj_e_Akbar" CONFIG_NAME="Debug">
       <envs />
       <method />
     </configuration>
     <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Application.11498_DivisionOfNlogonia" />
+      <item index="0" class="java.lang.String" itemvalue="Application.12577_Hajj_e_Akbar" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3abdeb9f-c8d0-461f-bcaa-12c90cbaafa7" name="Default" comment="" />
-      <created>1419968877573</created>
+      <changelist id="60675e32-2220-4c2c-a0b7-f5cf7d6f5ebc" name="Default" comment="" />
+      <created>1419981526708</created>
       <option name="number" value="Default" />
-      <updated>1419968877573</updated>
+      <updated>1419981526708</updated>
     </task>
     <servers />
   </component>
@@ -138,7 +151,7 @@
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24916574" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896176" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32896176" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -182,10 +195,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5887372" vertical-offset="0" max-vertical-offset="765">
-          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.46075085" vertical-offset="0" max-vertical-offset="586">
+          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
           <folding>
-            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
